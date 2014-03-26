@@ -1,4 +1,4 @@
 Traidor
 =======
 
-Single Simulated Momentum Trader
+Traders that simulate trading based on real market data.
