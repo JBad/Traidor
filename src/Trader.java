@@ -1,7 +1,9 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-
+/*
+ * Another class to trade with. feel free to move the main.
+ */
 public class Trader {
 
 	public static void main(String [] args) throws IOException

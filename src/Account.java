@@ -1,4 +1,7 @@
 
+/*
+ * Simulates the account
+ */
 public class Account {
 	public double cash;
 	public Stock myStock;
