@@ -3,10 +3,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.regex.Pattern;
 
 /*
  * Utils to deal with the web--quite ugly/shitty
+ * Ticker MUST BE CORRECT
+ * ONLY NASDAQ 
  */
 public class MarketUtils {
 	private static String preUrl = "http://finance.google.com/finance/info?client=ig&q=NASDAQ%3a";
