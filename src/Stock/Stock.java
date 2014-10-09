@@ -1,5 +1,8 @@
+package Stock;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import Utils.MarketUtils;
 
 /*
  * representation of an individual stock

@@ -1,5 +1,9 @@
+package Traders;
 import java.io.IOException;
 import java.util.Scanner;
+
+import Stock.Stock;
+import Utils.MarketUtils;
 
 /*
  * Another class to trade with. feel free to move the main.
