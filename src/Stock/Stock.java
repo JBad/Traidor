@@ -28,7 +28,7 @@ public class Stock {
 	 */
 	public void update() throws IOException {
 		if(priceHistory.size() >= historySize) {
-			priceHistory.remove(historySize-1);
+			priceHistory.remove(historySize);
 		}
 		priceHistory.add(0, price);
 		price = MarketUtils.getPrice(ticker);
@@ -49,7 +49,7 @@ public class Stock {
 	 */
 	public boolean movingUp(int steps){
 		if(steps >= historySize) {
-			steps = historySize-1;
+			steps = historySize;
 		}
 		for(int i = 0; i < steps; ++i){
 			if(priceHistory.get(i) < priceHistory.get(i+1)) {
@@ -63,7 +63,7 @@ public class Stock {
 	 */
 	public boolean movingDown(int steps){
 		if(steps >= historySize) {
-			steps = historySize-1;
+			steps = historySize;
 		}
 		for(int i = 0; i < steps; ++i){
 			if(priceHistory.get(i) > priceHistory.get(i+1)) {
@@ -79,7 +79,7 @@ public class Stock {
 	 */
 	public double timeWeightedMovment(int steps){
 		if(steps >= historySize) {
-			steps = historySize-1;
+			steps = historySize;
 		}
 		double result = 0.0;
 		for(int i = 0; i < steps; ++i){
@@ -95,7 +95,7 @@ public class Stock {
 	 */
 	public boolean averageUp(int steps){
 		if(steps >= historySize) {
-			steps = historySize-1;
+			steps = historySize;
 		}
 		int up = 0, down = 0;
 		for(int i = 0; i < steps; ++i){
@@ -109,8 +109,19 @@ public class Stock {
 		return up > down;
 	}
 	
+	public double averagePrive(int steps){
+		if(steps >= historySize) {
+			steps = historySize;
+		}
+		double average = 0;
+		for(double price: priceHistory){
+			average += price;
+		}
+		return average / historySize;
+	}
+	
 	public String ticker;
 	public double price;
 	public ArrayList<Double> priceHistory;
-	public static final int historySize = 20; 
+	public static final int historySize = 200; 
 }

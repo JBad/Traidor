@@ -13,6 +13,11 @@ import java.net.URLConnection;
 public class MarketUtils {
 	private static String preUrl = "http://finance.google.com/finance/info?client=ig&q=NASDAQ%3a";
 	
+	public static boolean IsMarketOpen;
+	
+	/*
+	 * Return the value of the given ticker
+	 */
 	public static double getPrice(String ticker) throws IOException {
 		URL valUrl = new URL(preUrl+ticker);
 		URLConnection urlC = valUrl.openConnection();
@@ -28,6 +33,12 @@ public class MarketUtils {
 		 int valLocationDot = result.indexOf(".", valLocation+15);
 		 String value = result.substring(valLocation+15, valLocationDot+3);
 		 return Double.parseDouble(value);
+	}
+	
+	/*
+	 * TODO: this
+	 */
+	public static void updateMarket(){
 		
 	}
 
