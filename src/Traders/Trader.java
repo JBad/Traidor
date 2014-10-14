@@ -52,6 +52,9 @@ public class Trader implements Runnable{
 		waitTime = checkTime;
 	}
 
+	public void addStrategy(Strategy s){
+		strategyProfile.add(s);
+	}
 	@Override
 	public void run() {
 		try{
