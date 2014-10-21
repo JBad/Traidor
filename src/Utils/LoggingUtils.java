@@ -1,7 +1,6 @@
 package Utils;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.FileWriter;
 
 import Stock.Stock;
 /*
@@ -21,10 +20,10 @@ public class LoggingUtils {
 	public static void LogToFile(String message, String name) 
 	{
 		try {
-			PrintWriter writer = new PrintWriter(name + "_" + LogFile);
-			writer.write(message + "\n");
-			writer.close();
-		} catch (FileNotFoundException e) {
+			FileWriter out = new FileWriter(name + "_" + LogFile,true); //the true will append the new data
+			out.write(message + "\n");
+			out.close();
+		} catch (Exception e) {
 			System.out.println("CANNOT LOG");
 		}
 	}
@@ -41,15 +40,15 @@ public class LoggingUtils {
 	public static void LogTransaction(String name, String bs, Stock stock, double sharesChanged, double sharesOwned, double d)
 	{
 		try {
-		PrintWriter writer = new PrintWriter(name + "_" + TransactionHistory);
-		writer.write(bs +
+			FileWriter out = new FileWriter(name + "_" + TransactionHistory);
+		out.write(bs +
 				"," + stock.ticker +
 				"," + stock.price +
 				"," + sharesChanged +
 				"," + sharesOwned +
-				"," + d);
-		writer.close();
-		} catch (FileNotFoundException e) {
+				"," + d + "\n");
+		out.close();
+		} catch (Exception e) {
 			System.out.println("CANNOT LOG");
 		}
 	}

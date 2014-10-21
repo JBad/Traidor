@@ -7,6 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import Account.Account;
 import Stock.Stock;
+import Strategies.MomentumStrategy;
 import Strategies.Strategy;
 import Utils.LoggingUtils;
 import Utils.MarketUtils;
@@ -31,6 +32,7 @@ public class Trader implements Runnable{
 		System.out.println(stock.price);
 		String[] stocks = {"GOOG","AAPL","MSFT","NFLX","SPY", "PG"};//not too tech heavy :p
 		Trader sillyMan = new Trader(1000000, stocks, 10000, "SillyMan");
+		sillyMan.addStrategy(new MomentumStrategy());
 		sillyMan.run();
 	}
 	
