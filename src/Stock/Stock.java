@@ -9,6 +9,17 @@ import Utils.MarketUtils;
  */
 public class Stock {
 	
+	@Override
+	public int hashCode(){
+		return ticker.hashCode();	
+	}
+	@Override
+	public boolean equals(Object other){
+		 if (!(other instanceof Stock))
+	            return false;
+	     return ((Stock) other).ticker.equals(ticker);
+	}
+	
 	/*
 	 * grabs the ticker and updates the price. fills the history array with the
 	 * initial value (Removes annoying edge conditions, each day would start with
@@ -28,7 +39,7 @@ public class Stock {
 	 */
 	public void update() throws IOException {
 		if(priceHistory.size() >= historySize) {
-			priceHistory.remove(historySize);
+			priceHistory.remove(historySize-1);
 		}
 		priceHistory.add(0, price);
 		price = MarketUtils.getPrice(ticker);

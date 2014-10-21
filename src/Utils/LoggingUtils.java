@@ -22,6 +22,7 @@ public class LoggingUtils {
 		try {
 			FileWriter out = new FileWriter(name + "_" + LogFile,true); //the true will append the new data
 			out.write(message + "\n");
+	//		System.out.println(message);
 			out.close();
 		} catch (Exception e) {
 			System.out.println("CANNOT LOG");
@@ -40,7 +41,7 @@ public class LoggingUtils {
 	public static void LogTransaction(String name, String bs, Stock stock, double sharesChanged, double sharesOwned, double d)
 	{
 		try {
-			FileWriter out = new FileWriter(name + "_" + TransactionHistory);
+			FileWriter out = new FileWriter(name + "_" + TransactionHistory,true);
 		out.write(bs +
 				"," + stock.ticker +
 				"," + stock.price +
@@ -48,6 +49,13 @@ public class LoggingUtils {
 				"," + sharesOwned +
 				"," + d + "\n");
 		out.close();
+
+/*		System.out.println(bs +
+				"," + stock.ticker +
+				"," + stock.price +
+				"," + sharesChanged +
+				"," + sharesOwned +
+				"," + d);*/
 		} catch (Exception e) {
 			System.out.println("CANNOT LOG");
 		}

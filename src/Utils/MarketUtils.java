@@ -13,7 +13,7 @@ import java.net.URLConnection;
 public class MarketUtils {
 	private static String preUrl = "http://finance.google.com/finance/info?client=ig&q=NASDAQ%3a";
 	
-	public static boolean IsMarketOpen;
+	public static boolean IsMarketOpen = true;
 	
 	/*
 	 * Return the value of the given ticker
@@ -39,7 +39,7 @@ public class MarketUtils {
 	 * TODO: this
 	 */
 	public static void updateMarket(){
-		
+		IsMarketOpen = true;
 	}
 
 }

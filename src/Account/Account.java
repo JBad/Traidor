@@ -77,7 +77,10 @@ public class Account {
 	}
 	
 	public double getPurchaseValue(Stock stock){
-		return purchasedValues.get(stock);
+		if(purchasedValues.containsKey(stock)){
+			return purchasedValues.get(stock);
+		}
+		return stock.price;
 	}
 
 	public void sellAllStock(Stock stock) {
