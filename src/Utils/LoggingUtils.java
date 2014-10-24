@@ -41,7 +41,7 @@ public class LoggingUtils {
 	public static void LogTransaction(String name, String bs, Stock stock, double sharesChanged, double sharesOwned, double d)
 	{
 		try {
-			FileWriter out = new FileWriter(name + "_" + TransactionHistory,true);
+			FileWriter out = new FileWriter(name + "_" + TransactionHistory, true);
 		out.write(bs +
 				"," + stock.ticker +
 				"," + stock.price +
