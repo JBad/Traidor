@@ -22,17 +22,17 @@ public class MarketUtils {
 		URL valUrl = new URL(preUrl+ticker);
 		URLConnection urlC = valUrl.openConnection();
 		//System.out.println(valUrl.toString());
-		 BufferedReader in = new BufferedReader(
-				 new InputStreamReader(urlC.getInputStream()));
-		 String result = "";
-		 String inputLine = "";
-		 while ((inputLine = in.readLine()) != null)
-	            result += inputLine;
-	     in.close();
-		 int valLocation = result.indexOf("NASDAQ");
-		 int valLocationDot = result.indexOf(".", valLocation+15);
-		 String value = result.substring(valLocation+15, valLocationDot+3);
-		 return Double.parseDouble(value);
+		BufferedReader in = new BufferedReader(
+				new InputStreamReader(urlC.getInputStream()));
+		String result = "";
+		String inputLine = "";
+		while ((inputLine = in.readLine()) != null)
+			result += inputLine;
+		in.close();
+		int valLocation = result.indexOf("NASDAQ");
+		int valLocationDot = result.indexOf(".", valLocation+15);
+		String value = result.substring(valLocation+15, valLocationDot+3);
+		return Double.parseDouble(value);
 	}
 	
 	/*
