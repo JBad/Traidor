@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 public class SimTester {
-	
+
 	public static void main(String[] args) {
 		/*Jetty HTTPClient code
 			HttpClient trader = new HttpClient();
