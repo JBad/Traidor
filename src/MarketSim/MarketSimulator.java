@@ -29,10 +29,12 @@ public class MarketSimulator extends AbstractHandler {
 	public MarketSimulator(String filename) {
 		market = new HashMap<String, StockData >();
 		tickers = new ArrayList<String>();
+		
 		while (!openStreamAndPopulate(filename)) {
 			System.out.print("Invalid file name: " + filename + ". Try again: ");
 			filename = sc.nextLine();
 		}
+		
 		sc.close();
 	}
 
@@ -48,6 +50,7 @@ public class MarketSimulator extends AbstractHandler {
 			readTickers();
 			updateMarket();
 			return true;
+			
 		} catch (Exception e) {
 			try {
 				marketReader.close();
@@ -63,6 +66,7 @@ public class MarketSimulator extends AbstractHandler {
 	private void readTickers() throws IOException {
 		String stockTickers = marketReader.readLine();
 		StringTokenizer tokenizer = new StringTokenizer(stockTickers, ",");
+		
 		while (tokenizer.hasMoreTokens()) {
 			String ticker = tokenizer.nextToken();
 			market.put(ticker, new StockData());
@@ -74,6 +78,7 @@ public class MarketSimulator extends AbstractHandler {
 	private void updateMarket() throws NumberFormatException, IOException {
 		String prices = marketReader.readLine();
 		StringTokenizer tokenizer = new StringTokenizer(prices, ",");
+		
 		for (int i = 0; tokenizer.hasMoreTokens(); ++i) {
 			market.get(tickers.get(i)).update(tokenizer.nextToken());
 		}
@@ -95,6 +100,7 @@ public class MarketSimulator extends AbstractHandler {
 		if (market.get(request.getParameter("q")).isStale()) {
 			updateMarket();
 		};
+		
 		response.setContentType("text/html");
 		response.setStatus(HttpServletResponse.SC_OK);
 		baseRequest.setHandled(true);
