@@ -7,15 +7,6 @@ import java.net.URL;
 public class SimTester {
 
 	public static void main(String[] args) {
-		/*Jetty HTTPClient code
-			HttpClient trader = new HttpClient();
-			trader.start();
-			ContentExchange exchange = new ContentExchange(true);
-			exchange.setURL("http://127.0.0.1:8080/?ticker=GOOG");
-			trader.send(exchange);
-			int exchangeState = exchange.waitForDone();
-			System.out.println(exchange.getResponseContent()); 
-		*/
 		for (int i = 0; i < 30; ++i) {
 			try {
 				URL googUrl = new URL("http://127.0.0.1:8080?client=ig&q=GOOG%3a");

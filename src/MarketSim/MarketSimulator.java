@@ -36,6 +36,8 @@ public class MarketSimulator extends AbstractHandler {
 		sc.close();
 	}
 
+	// Open a BufferedReader to the csv file representing the market
+	// Read the tickers and update the market (allowing them to be read)
 	private boolean openStreamAndPopulate(String filename) {
 		try {
 			marketReader = new BufferedReader(new FileReader(filename));
@@ -56,6 +58,8 @@ public class MarketSimulator extends AbstractHandler {
 		}
 	}
 	
+	// Reads the first line of the input file, representing
+	// each tracked ticker
 	private void readTickers() throws IOException {
 		String stockTickers = marketReader.readLine();
 		StringTokenizer tokenizer = new StringTokenizer(stockTickers, ",");
@@ -66,6 +70,7 @@ public class MarketSimulator extends AbstractHandler {
 		}
 	}
 	
+	// Reads the next line of stock data, updating each ticker
 	private void updateMarket() throws NumberFormatException, IOException {
 		String prices = marketReader.readLine();
 		StringTokenizer tokenizer = new StringTokenizer(prices, ",");
